@@ -1,6 +1,6 @@
 # AJ OS
 
-![AJ OS Dashboard](assets/dashboard-preview.png)
+![AJ OS Hero Banner](assets/hero-banner.png)
 
 **The specialized personal operating system for high-output builders.**
 
@@ -40,6 +40,14 @@ A centralized repository for external resources. The Discovery Engine captures U
 
 ### Analytics & Insights
 Local-first data processing that identifies behavioral patterns. It tracks streaks, completion ratios, and capture rates to provide a brutal, evidence-based view of your productivity.
+
+---
+
+## User Interface
+
+![Dashboard Interface](assets/dashboard-preview.png)
+
+*The Command Center: A high-fidelity dashboard for unified information awareness.*
 
 ---
 
