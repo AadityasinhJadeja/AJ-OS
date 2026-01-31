@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    /* Growth Horizon Theme - Final Polish */
+
+    /* Backgrounds: Cleaner, Brighter */
+    --bg-deep: #ffffff;
+    /* Pure White Base for maximum contrast */
+    --bg-surface: rgba(255, 255, 255, 0.95);
+    /* High opacity glass */
+    --bg-surface-solid: #ffffff;
+    --bg-card: #ffffff;
+    /* Solid cards */
+    --bg-card-hover: #f8fafc;
+    /* Slight grey on hover */
+    --bg-input: #f8fafc;
+    --bg-input-focus: #ffffff;
+
+    /* Accents: Precise & Professional */
+    --accent-primary: #0f766e;
+    /* Deep Teal */
+    --accent-secondary: #c2410c;
+    /* Deep Orange */
+    --accent-success: #15803d;
+    /* Deep Green */
+    --accent-wisdom: #7e22ce;
+    /* Deep Purple */
+
+    /* Text: STRICT HIGH CONTRAST */
+    --text-main: #020617;
+    /* Slate 950 - Absolute Black-ish */
+    --text-dim: #334155;
+    /* Slate 700 - Dark Grey */
+    --text-dimmer: #475569;
+    /* Slate 600 - Medium Grey (READABLE) */
+    --text-inverse: #ffffff;
+
+    /* Borders: Ultra Refined */
+    --border-soft: #e2e8f0;
+    /* Slate 200 */
+    --border-card: #e2e8f0;
+    /* Slate 200 */
+    --border-hover: #cbd5e1;
+    /* Slate 300 */
+    --border-focus: #0f766e;
+    /* Teal */
+
+    /* Shadows: Soft & Diffused (Apple Style) */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    --sidebar-bg: rgba(255, 255, 255, 0.9);
+    --glass-blur: blur(16px);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    line-height: 1.6;
+    /* Slightly more breathing room */
+    letter-spacing: -0.011em;
+    /* Meticulously tightened for Inter */
+}
+
+/* 
+   REFINED BACKGROUND ENGINE 
+   The grid must be barely visible.
+*/
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main) !important;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Card System - Fixed Contrast */
+.glass-panel {
+    background: var(--bg-surface);
+    backdrop-filter: var(--glass-blur);
+    border-right: 1px solid var(--border-soft);
+    position: relative;
+    z-index: 50;
+}
+
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Signature high-end curve */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle inner highlight for depth */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent 40%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.glass-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px) scale(1.005);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Input Fields - High Contrast */
+input,
+textarea,
+select {
+    background: var(--bg-input) !important;
+    border: 1px solid var(--border-card) !important;
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    background: var(--bg-input-focus) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.08) !important;
+    transform: translateY(-1px);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-dimmer) !important;
+    opacity: 1;
+}
+
+/* CRITICAL: Text Visibility Overrides */
+/* Force all "light" text classes to be dark enough to read */
+.text-zinc-50,
+.text-zinc-100,
+.text-zinc-200,
+.text-zinc-300,
+.text-slate-50,
+.text-slate-100,
+.text-slate-200,
+.text-slate-300,
+.text-gray-50,
+.text-gray-100,
+.text-gray-200,
+.text-gray-300 {
+    color: var(--text-dim) !important;
+    /* Force to dark grey */
+}
+
+.text-zinc-400,
+.text-slate-400,
+.text-gray-400 {
+    color: var(--text-dimmer) !important;
+    /* Force to medium grey */
+}
+
+.text-zinc-500,
+.text-slate-500,
+.text-gray-500 {
+    color: var(--text-dimmer) !important;
+}
+
+/* FLUX ANIMATIONS - Slower, Softer */
+@keyframes flux-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+}
+
+.animate-flux-slow {
+    animation: flux-float 25s ease-in-out infinite;
+}
+
+.bullet-format {
+    white-space: pre-wrap;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::selection {
+    background: rgba(15, 118, 110, 0.15);
+    color: var(--accent-primary);
+}
+
+/* Worldwide Designer Polish: Button Feedbacks */
+/* Worldwide Designer Polish: Button Feedbacks */
+button:active {
+    transform: scale(0.98);
+}
+
+.clickable {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.clickable:hover {
+    opacity: 0.8;
+}
+
+/* Inline Edit Mode Animation */
+@keyframes pulse-border {
+    0%, 100% { border-color: rgba(14, 165, 233, 0.5); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+    50% { border-color: rgba(14, 165, 233, 0.8); box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1); }
+}
+
+.animate-pulse-border {
+    animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Staggered Entry Animations - The "System Boot" Feel */
+@keyframes slide-up-fade {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-slide-up {
+    animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger Delays for children */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+
+/* Premium Shimmer for Loading States */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, 
+        rgba(255,255,255, 0) 0%, 
+        rgba(255,255,255, 0.4) 50%, 
+        rgba(255,255,255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Glass Card subtle shine on hover */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.glass-card:hover::after {
+    left: 150%;
+    transition: 0.7s ease-in-out;
+}
+
+/* Custom Scrollbar for Time Picker */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { 
+    background: rgba(148, 163, 184, 0.3); 
+    border-radius: 10px; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { 
+    background: rgba(148, 163, 184, 0.5); 
+}
